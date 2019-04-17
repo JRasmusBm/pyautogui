@@ -11,12 +11,17 @@ def new_window():
 
 
 def pane_below():
-    pyautogui.hotkey("ctrl", "a")
+    pyautogui.hotkey("ctrl", "s")
     pyautogui.typewrite('"')
 
 
+def pane_right():
+    pyautogui.hotkey("ctrl", "s")
+    pyautogui.typewrite("%")
+
+
 def switch_to_window(n):
-    pyautogui.hotkey("ctrl", "a")
+    pyautogui.hotkey("ctrl", "s")
     pyautogui.typewrite(str(n))
 
 
@@ -71,7 +76,23 @@ def taxi():
     switch_to_window(2)
 
 
+def haskell():
+    run("z dec")
+    new_window()
+    run("z dec")
+    run("vim")
+    run(":Ex")
+    pane_right()
+    run("z dec")
+    run("stack ghci")
+    new_window()
+    run("z dec")
+    switch_to_window(2)
+
+
 if routine == "recipes":
     recipes()
 if routine == "taxi":
     taxi()
+if routine == "haskell":
+    haskell()
