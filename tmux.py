@@ -4,8 +4,10 @@ import time
 
 _, routine = sys.argv
 
+
 def tmux_hotkey():
     pyautogui.hotkey("ctrl", "s")
+
 
 def new_window():
     tmux_hotkey()
@@ -45,6 +47,7 @@ def recipe_client():
     run("z rec a")
     switch_to_window(2)
 
+
 def recipe_server():
     run("z rec s")
     run("docker rm -f $(docker ps -a -q)")
@@ -59,19 +62,6 @@ def recipe_server():
     run("z rec s")
     switch_to_window(1)
 
-def plab3():
-    run("z dec")
-    new_window()
-    run("z dec")
-    run("cd prolog_labs/lab3")
-    run("vim")
-    pane_right()
-    run("z dec")
-    run("cd prolog_labs/lab3")
-    run("swipl -s othello.pl")
-    new_window()
-    run("z dec")
-    switch_to_window(2)
 
 def taxi():
     for _ in range(4):
@@ -96,27 +86,9 @@ def taxi():
     switch_to_window(2)
 
 
-def haskell():
-    run("z dec")
-    new_window()
-    run("z dec")
-    run("vim")
-    run(":Ex")
-    pane_right()
-    run("z dec")
-    run("stack ghci")
-    new_window()
-    run("z dec")
-    switch_to_window(2)
-
-
-if routine == "plab3":
-    plab3()
 if routine == "recipe-server":
     recipe_server()
 if routine == "recipe-client":
     recipe_client()
 if routine == "taxi":
     taxi()
-if routine == "haskell":
-    haskell()
