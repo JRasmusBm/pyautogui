@@ -86,9 +86,10 @@ def taxi():
     switch_to_window(2)
 
 
-if routine == "recipe-server":
-    recipe_server()
-if routine == "recipe-client":
-    recipe_client()
-if routine == "taxi":
-    taxi()
+if __name__ == "__main__":
+    if routine == "recipe-server":
+        recipe_server()
+    if routine == "recipe-client":
+        recipe_client()
+    if routine == "taxi":
+        taxi()
