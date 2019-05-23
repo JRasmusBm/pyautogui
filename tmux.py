@@ -30,10 +30,10 @@ def run(command):
     pyautogui.hotkey("ctrl", "m")
 
 
-def recipes():
+def recipe_client():
     run("z rec a")
     run("npm start")
-    pane_below()
+    pane_right()
     run("z rec a")
     run("npm run test:watch")
     new_window()
@@ -41,16 +41,21 @@ def recipes():
     run("vim")
     new_window()
     run("z rec a")
-    pane_below()
+    switch_to_window(2)
+
+def recipe_server():
     run("z rec s")
+    run("docker rm -f $(docker ps -a -q)")
+    run("docker-compose down; docker-compose -f docker-compose-dev.yml up")
+    pane_right()
+    run("sleep 5;")
+    run("docker exec -ti recipe-server-dev-test sh")
     new_window()
     run("z rec s")
     run("vim")
     new_window()
     run("z rec s")
-    run("docker rm -f $(docker ps -a -q)")
-    run("docker-compose down; docker-compose up")
-    switch_to_window(2)
+    switch_to_window(1)
 
 
 def taxi():
@@ -90,8 +95,10 @@ def haskell():
     switch_to_window(2)
 
 
-if routine == "recipes":
-    recipes()
+if routine == "recipe-server":
+    recipe_server()
+if routine == "recipe-client":
+    recipe_client()
 if routine == "taxi":
     taxi()
 if routine == "haskell":
