@@ -4,24 +4,26 @@ import time
 
 _, routine = sys.argv
 
+def tmux_hotkey():
+    pyautogui.hotkey("ctrl", "s")
 
 def new_window():
-    pyautogui.hotkey("ctrl", "s")
+    tmux_hotkey()
     pyautogui.typewrite("c")
 
 
 def pane_below():
-    pyautogui.hotkey("ctrl", "s")
+    tmux_hotkey()
     pyautogui.typewrite('"')
 
 
 def pane_right():
-    pyautogui.hotkey("ctrl", "s")
+    tmux_hotkey()
     pyautogui.typewrite("%")
 
 
 def switch_to_window(n):
-    pyautogui.hotkey("ctrl", "s")
+    tmux_hotkey()
     pyautogui.typewrite(str(n))
 
 
