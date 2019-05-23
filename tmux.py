@@ -57,6 +57,19 @@ def recipe_server():
     run("z rec s")
     switch_to_window(1)
 
+def plab3():
+    run("z dec")
+    new_window()
+    run("z dec")
+    run("cd prolog_labs/lab3")
+    run("vim")
+    pane_right()
+    run("z dec")
+    run("cd prolog_labs/lab3")
+    run("swipl -s othello.pl")
+    new_window()
+    run("z dec")
+    switch_to_window(2)
 
 def taxi():
     for _ in range(4):
@@ -95,6 +108,8 @@ def haskell():
     switch_to_window(2)
 
 
+if routine == "plab3":
+    plab3()
 if routine == "recipe-server":
     recipe_server()
 if routine == "recipe-client":
