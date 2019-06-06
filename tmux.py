@@ -69,6 +69,7 @@ def rise_server():
     new_window()
     run("z ri s")
     run("vim")
+    new_window()
     run("z ri s")
     switch_to_window(2)
 
@@ -79,6 +80,7 @@ def rise_client():
     new_window()
     run("z ri c")
     run("vim")
+    new_window()
     run("z ri c")
     switch_to_window(2)
 
