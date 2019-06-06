@@ -51,7 +51,7 @@ def recipe_client():
 def recipe_server():
     run("z recipe server")
     run("docker rm -f $(docker ps -a -q)")
-    run("docker-compose down; docker-compose -f docker-compose-dev.yml up")
+    run("docker-compose -f docker-compose-dev.yml up --remove-orphans")
     pane_right()
     run("sleep 5;")
     run("docker exec -ti recipe-server-dev-test sh")
@@ -65,7 +65,7 @@ def recipe_server():
 
 def rise_server():
     run("z rise server")
-    run("docker-compose -f docker-compose-dev.yml up")
+    run("docker-compose -f docker-compose-dev.yml up --remove-orphans")
     new_window()
     run("z rise server")
     run("vim")
@@ -76,7 +76,7 @@ def rise_server():
 
 def rise_client():
     run("z rise client")
-    run("docker-compose -f docker-compose-dev.yml up")
+    run("docker-compose -f docker-compose-dev.yml up --remove-orphans")
     new_window()
     run("z rise client")
     run("vim")
@@ -91,7 +91,7 @@ def taxi():
         new_window()
     run("z mongodb")
     run("docker rm -f $(docker ps -a -q)")
-    run("docker-compose down; docker-compose up")
+    run("docker-compose up --remove-orphans")
     switch_to_window(2)
     run("vim")
     switch_to_window(4)
