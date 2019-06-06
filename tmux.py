@@ -35,53 +35,53 @@ def run(command):
 
 
 def recipe_client():
-    run("z rec a")
+    run("z recipe app")
     run("npm start")
     pane_right()
-    run("z rec a")
+    run("z recipe app")
     run("npm run test:watch")
     new_window()
-    run("z rec a")
+    run("z recipe app")
     run("vim")
     new_window()
-    run("z rec a")
+    run("z recipe app")
     switch_to_window(2)
 
 
 def recipe_server():
-    run("z rec s")
+    run("z recipe server")
     run("docker rm -f $(docker ps -a -q)")
     run("docker-compose down; docker-compose -f docker-compose-dev.yml up")
     pane_right()
     run("sleep 5;")
     run("docker exec -ti recipe-server-dev-test sh")
     new_window()
-    run("z rec s")
+    run("z recipe server")
     run("vim")
     new_window()
-    run("z rec s")
+    run("z recipe server")
     switch_to_window(1)
 
 
 def rise_server():
-    run("z ri s")
+    run("z rise server")
     run("docker-compose -f docker-compose-dev.yml up")
     new_window()
-    run("z ri s")
+    run("z rise server")
     run("vim")
     new_window()
-    run("z ri s")
+    run("z rise server")
     switch_to_window(2)
 
 
 def rise_client():
-    run("z ri c")
+    run("z rise client")
     run("docker-compose -f docker-compose-dev.yml up")
     new_window()
-    run("z ri c")
+    run("z rise client")
     run("vim")
     new_window()
-    run("z ri c")
+    run("z rise client")
     switch_to_window(2)
 
 
