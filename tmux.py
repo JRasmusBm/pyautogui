@@ -63,6 +63,26 @@ def recipe_server():
     switch_to_window(1)
 
 
+def rise_server():
+    run("z ri s")
+    run("docker-compose -f docker-compose-dev.yml up")
+    new_window()
+    run("z ri s")
+    run("vim")
+    run("z ri s")
+    switch_to_window(2)
+
+
+def rise_client():
+    run("z ri c")
+    run("docker-compose -f docker-compose-dev.yml up")
+    new_window()
+    run("z ri c")
+    run("vim")
+    run("z ri c")
+    switch_to_window(2)
+
+
 def taxi():
     for _ in range(4):
         run("z tax")
@@ -91,5 +111,9 @@ if __name__ == "__main__":
         recipe_server()
     if routine == "recipe-client":
         recipe_client()
+    if routine == "rise-server":
+        rise_server()
+    if routine == "rise-client":
+        rise_client()
     if routine == "taxi":
         taxi()
