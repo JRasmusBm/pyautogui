@@ -1,0 +1,4 @@
+yapf
+pyautogui
+python3-xlib
+pyperclip
