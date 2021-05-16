@@ -1,4 +1,5 @@
 yapf
 pyautogui
 python3-xlib
+black
 pyperclip
